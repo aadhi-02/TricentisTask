@@ -1,0 +1,776 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="BCRegister" this:BCRegister.sortBy="Price: Low to High" this:BCRegister.displayPerPage="12" this:BCRegister.viewAs="List" this:BCRegister.selectCountry="United States" this:BCRegister.selectState="Oklahoma" this:BCRegister.selectCity="Oklahoma" this:BCRegister.addressPath="C:\Users\ramachandran.a\OneDrive - ascendion\Desktop\TestData.xlsx" this:BCRegister.sheetName="Sheet1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:utat="clr-namespace:UiPath.Testing.Activities.TestData;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="lastName" Type="InArgument(x:String)" />
+    <x:Property Name="firstName" Type="InArgument(x:String)" />
+    <x:Property Name="password" Type="InArgument(x:String)" />
+    <x:Property Name="sortBy" Type="InArgument(x:String)" />
+    <x:Property Name="displayPerPage" Type="InArgument(x:String)" />
+    <x:Property Name="viewAs" Type="InArgument(x:String)" />
+    <x:Property Name="productName" Type="InArgument(x:String)" />
+    <x:Property Name="selectCountry" Type="InArgument(x:String)" />
+    <x:Property Name="checkBox" Type="InArgument(x:Boolean)" />
+    <x:Property Name="selectState" Type="InArgument(x:String)" />
+    <x:Property Name="postalCode" Type="InArgument(x:Decimal)" />
+    <x:Property Name="phoneNumber" Type="InArgument(x:Decimal)" />
+    <x:Property Name="selectCity" Type="InArgument(x:String)" />
+    <x:Property Name="address1" Type="InArgument(x:String)" />
+    <x:Property Name="shippingMethodCheckbox" Type="InArgument(x:Boolean)" />
+    <x:Property Name="paymentInformation" Type="InArgument(x:String)" />
+    <x:Property Name="orderConfirmation" Type="InArgument(x:String)" />
+    <x:Property Name="addressPath" Type="InArgument(x:String)" />
+    <x:Property Name="sheetName" Type="InArgument(x:String)" />
+    <x:Property Name="intReportId" Type="InArgument(x:Int32)" />
+    <x:Property Name="intTestId" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:BCRegister.lastName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.lastName>
+  <this:BCRegister.firstName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.firstName>
+  <this:BCRegister.password>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.password>
+  <this:BCRegister.productName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.productName>
+  <this:BCRegister.checkBox>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:BCRegister.checkBox>
+  <this:BCRegister.postalCode>
+    <InArgument x:TypeArguments="x:Decimal" />
+  </this:BCRegister.postalCode>
+  <this:BCRegister.phoneNumber>
+    <InArgument x:TypeArguments="x:Decimal" />
+  </this:BCRegister.phoneNumber>
+  <this:BCRegister.address1>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.address1>
+  <this:BCRegister.shippingMethodCheckbox>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:BCRegister.shippingMethodCheckbox>
+  <this:BCRegister.paymentInformation>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.paymentInformation>
+  <this:BCRegister.orderConfirmation>
+    <InArgument x:TypeArguments="x:String" />
+  </this:BCRegister.orderConfirmation>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>854,11334.666666666666</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>BCRegister_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Testing.Activities.TestData</x:String>
+      <x:String>UiPath.Testing.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Testing</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Activities.System.Text</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>ReporterForUiPath.Enums</x:String>
+      <x:String>ReporterForUiPath.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Testing</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="BCRegister" sap:VirtualizedContainerService.HintSize="568,11270" sap2010:WorkflowViewState.IdRef="Sequence_22">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="HomePage" sap:VirtualizedContainerService.HintSize="506,11182" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="60be1a65-88b5-456e-9adf-763380724da9" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,10940" sap2010:WorkflowViewState.IdRef="Sequence_27">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="TestData" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ra:StepStatus ActualResult="{x:Null}" CodeBlock="{x:Null}" ContinueOnError="{x:Null}" ExpectedResult="{x:Null}" statusInfo="{x:Null}" DisplayName="Step Status" sap:VirtualizedContainerService.HintSize="410,176" sap2010:WorkflowViewState.IdRef="StepStatus_1" ReportId="[intReportId]" Status="Compare" StepDescription="Application should be launched" StepName="Verify application was launched" TakeScreenshot="True" TestId="[intTestId]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'RegisterButtonInHomepage'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_60" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/" ContentHash="ltIL1zZ8LUK_7ngr5TZaPQ" CvTextArea="1215, 390, 70, 21" CvTextArgument="Register" CvType="Text" DesignTimeRectangle="1203, 390, 82, 29" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'RegisterButtonInHomepage'" FullSelectorArgument="&lt;webctrl class='ico-register' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl class='ico-register' tag='A' type='' aaname='Register' check:innerText='Register' /&gt;" Guid="9983e661-92c5-457b-a764-4f035522a7f6" InformativeScreenshot="60b9824e4192ae5c16c4f7387bc15c7a.png" Reference="RCWgLEs1BkavBHy1jrKArQ/C1NMhfzcrkeAYmINYuiaog" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'GenderSelection'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_61" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="Xmg-GdyoR0uPriez3zfuoA" CvElementArea="811, 565, 23, 24" CvType="RadioButton" DesignTimeRectangle="815, 568, 20, 20" DesignTimeScaleFactor="1.5" ElementType="RadioButton" FriendlyName="'GenderSelection'" FullSelectorArgument="&lt;webctrl id='gender-male' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='gender-male' tag='INPUT' type='radio' class='' aaname='Male' /&gt;" Guid="2d8fd80d-b9c7-4122-a35d-44f932ad5932" InformativeScreenshot="0001432f8101883a29b03447677f8371.png" Reference="RCWgLEs1BkavBHy1jrKArQ/oJQUWytBIEmMv4Sz1A9D-Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="849, 564, 40, 18" CvTextArgument="Male" CvType="Text" DesignTimeRectangle="851, 564, 39, 20" ElementType="Text" FriendlyName="'GenderSelection'" FullSelectorArgument="&lt;webctrl class='forcheckbox' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl class='forcheckbox' tag='LABEL' type='' aaname='Male' check:innerText='Male' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <utat:GivenName DisplayName="Given Name" GivenNameResult="[firstName]" sap:VirtualizedContainerService.HintSize="410,132" sap2010:WorkflowViewState.IdRef="GivenName_7" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'FirstName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_43" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[firstName]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="x5dDI_G340q5DOQwqrmWpg" CvElementArea="803, 655, 256, 32" CvType="InputBox" DesignTimeRectangle="807, 658, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'FirstName'" FullSelectorArgument="&lt;webctrl id='FirstName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='FirstName' tag='INPUT' type='text' class='text-box single-line' aaname='First name:' /&gt;" Guid="0c6d3473-9127-468e-886d-1a62b7bb0017" InformativeScreenshot="9274ed5173d795e4915e3d84a1aa06a7.png" IsResponsive="True" Reference="RCWgLEs1BkavBHy1jrKArQ/mEiLzevdJk67XUgrXOZppA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="604, 660, 92, 18" CvTextArgument="First name:" CvType="Text" DesignTimeRectangle="607, 660, 195, 21" ElementType="Text" FriendlyName="'FirstName'" FullSelectorArgument="&lt;webctrl aaname='First name:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='First name:' tag='LABEL' type='' class='' check:innerText='First name:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <utat:LastName DisplayName="Last Name" sap:VirtualizedContainerService.HintSize="410,132" sap2010:WorkflowViewState.IdRef="LastName_7" LastNameResult="[lastName]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'LastName'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_44" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[lastName]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="pzG97TTIWky6OCGbc17q1Q" CvElementArea="802, 689, 258, 33" CvType="InputBox" DesignTimeRectangle="807, 693, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'LastName'" FullSelectorArgument="&lt;webctrl id='LastName' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='LastName' tag='INPUT' type='text' class='text-box single-line' aaname='Last name:' /&gt;" Guid="c125134f-66b3-4c21-be1e-698ff6dee23e" InformativeScreenshot="7b62ce6dc4360f5d045dd0a459295d54.png" IsResponsive="True" Reference="RCWgLEs1BkavBHy1jrKArQ/YI1jewCfBUWt2XV6DoN3cg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="604, 696, 91, 18" CvTextArgument="Last name:" CvType="Text" DesignTimeRectangle="607, 696, 195, 21" ElementType="Text" FriendlyName="'LastName'" FullSelectorArgument="&lt;webctrl aaname='Last name:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Last name:' tag='LABEL' type='' class='' check:innerText='Last name:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'EmailId'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_45" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[firstName+lastName+&quot;@user.com&quot;]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="MLLGjnaQd0aOa23QCPo-sw" CvElementArea="802, 725, 258, 33" CvType="InputBox" DesignTimeRectangle="807, 729, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'EmailId'" FullSelectorArgument="&lt;webctrl id='Email' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Email' tag='INPUT' type='text' class='text-box single-line' aaname='Email:' /&gt;" Guid="71dc1864-bbfa-4883-b40f-5319d873bb20" InformativeScreenshot="303eaabec0f21675d4c4d2cd619fd95f.png" IsResponsive="True" Reference="RCWgLEs1BkavBHy1jrKArQ/MkBW41StjkKoigMYcoubCA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="606, 730, 51, 18" CvTextArgument="Email:" CvType="Text" DesignTimeRectangle="607, 731, 195, 21" ElementType="Text" FriendlyName="'EmailId'" FullSelectorArgument="&lt;webctrl aaname='Email:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Email:' tag='LABEL' type='' class='' check:innerText='Email:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <utat:RandomString Case="Mixed" DisplayName="Random String" sap:VirtualizedContainerService.HintSize="410,240" sap2010:WorkflowViewState.IdRef="RandomString_8" Length="10" Output="[password]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_46" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="ZbGtfsYKx02nZ5k0IDbnxA" CvElementArea="803, 832, 258, 31" CvType="InputBox" DesignTimeRectangle="807, 835, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBoxPassword" FriendlyName="'password'" FullSelectorArgument="&lt;webctrl id='Password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='Password' tag='INPUT' type='password' class='text-box single-line password' aaname='Password:' /&gt;" Guid="ba1e63fb-5ade-408c-b962-a9501a3c7979" InformativeScreenshot="ddd666b907df15b7ab44ffbb4093be1c.png" Reference="RCWgLEs1BkavBHy1jrKArQ/UXllVgBOMEifjHsN1oZDqg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="604, 838, 87, 16" CvTextArgument="Password:" CvType="Text" DesignTimeRectangle="607, 838, 195, 21" ElementType="Text" FriendlyName="'password'" FullSelectorArgument="&lt;webctrl aaname='Password:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Password:' tag='LABEL' type='' class='' check:innerText='Password:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'confirmPassword'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,262.6666666666667" sap2010:WorkflowViewState.IdRef="NTypeInto_47" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[password]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="cJ2f4X2Qf0Cv1LyH1g1fhg" CvElementArea="802, 867, 261, 33" CvType="InputBox" DesignTimeRectangle="807, 871, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBoxPassword" FriendlyName="'confirmPassword'" FullSelectorArgument="&lt;webctrl id='ConfirmPassword' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ConfirmPassword' tag='INPUT' type='password' class='text-box single-line password' aaname='Confirm password:' /&gt;" Guid="d3ae36a8-63ae-4715-b4d7-b190e2f171fd" InformativeScreenshot="970d2794717d02c18a61d8e9210050ef.png" Reference="RCWgLEs1BkavBHy1jrKArQ/RqXzfu6ESE2tOEbD_-foNw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="604, 873, 153, 21" CvTextArgument="Confirm password:" CvType="Text" DesignTimeRectangle="607, 873, 195, 21" ElementType="Text" FriendlyName="'confirmPassword'" FullSelectorArgument="&lt;webctrl aaname='Confirm password:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Confirm password:' tag='LABEL' type='' class='' check:innerText='Confirm password:' /&gt;" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'RegisterButton'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_62" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/register" ContentHash="nsdvPWUzWEmeS_a7GPgQqw" CvElementArea="573, 942, 101, 37" CvTextArea="586, 949, 75, 22" CvTextArgument="Register" CvType="Button" DesignTimeRectangle="576, 945, 95, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'RegisterButton'" FullSelectorArgument="&lt;webctrl id='register-button' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='register-button' tag='INPUT' type='submit' class='button-1 register-next-step-button' aaname='Register' check:text='Register' /&gt;" Guid="9945abce-2ac4-4fb4-be4f-b740829ceb53" InformativeScreenshot="fc18ad333a35c03df329d74b3e2f20df.png" Reference="RCWgLEs1BkavBHy1jrKArQ/5zY2XI47hky4o4Sk-2Q4xw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ra:StepStatus ActualResult="{x:Null}" CodeBlock="{x:Null}" ContinueOnError="{x:Null}" ExpectedResult="{x:Null}" statusInfo="{x:Null}" DisplayName="Step Status" sap:VirtualizedContainerService.HintSize="410,176" sap2010:WorkflowViewState.IdRef="StepStatus_2" ReportId="[intReportId]" Status="Compare" StepDescription="Registration should be successful" StepName="Verify registration successful" TakeScreenshot="True" TestId="[intTestId]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'continueButton'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_63" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/registerresult/1" ContentHash="VbqIKMN8Pk-7KnWAfcEkmw" CvElementArea="573, 640, 105, 37" CvTextArea="585, 648, 81, 19" CvTextArgument="Continue" CvType="Button" DesignTimeRectangle="576, 643, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'continueButton'" FullSelectorArgument="&lt;webctrl aaname='Continue' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Continue' tag='INPUT' type='button' class='button-1 register-continue-button' check:text='Continue' /&gt;" Guid="2e7ba440-8636-4cfe-a3ea-e44e8ca69394" InformativeScreenshot="73a8bde0986acf7b4636c9c3deecc726.png" Reference="RCWgLEs1BkavBHy1jrKArQ/W5gJilmQjUy3KAI_p1wy4Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Register' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Books'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_64" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/" CvTextArea="306, 481, 75, 19" CvTextArgument="BOOKS" CvType="Text" DesignTimeRectangle="288, 477, 113, 30" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Books'" FullSelectorArgument="&lt;webctrl aaname='Books         ' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Books         ' tag='A' type='' class='' check:innerText='BOOKS' /&gt;" Guid="4c18bf75-8aad-4632-a004-8c328215e94b" InformativeScreenshot="b8f46c44c157c52c4c34a2f112a5ae90.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sort by'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_65" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books" CvTextArea="640, 670, 76, 19" CvTextArgument="Position" CvType="Text" DesignTimeRectangle="638, 668, 198, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'Position'" FullSelectorArgument="&lt;webctrl id='products-orderby' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-orderby' tag='SELECT' type='' class='' aaname='' /&gt;" Guid="1320271d-086d-4932-a2b1-1b94a887b9d0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMoAAAAeCAYAAABtyoGRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAUSSURBVHhe7Zy/ayJZHMD9E1JOkSImNoEtzk5LB644yTWCjZDikCsWq0UsDjsZthCzgSAWIik2mG4usDDXmSZgioApDpJiYTZEyAS2sEiRYovvvu+bN84P3xjXU8/NfD/wZTNvvqNP9n18831PjQFBEC9CohDEDEhFubu7A8Mw4OzsjIIiMoFjHse+DJ8omJTJZGBjY4OCIrKBDgSFGYuCJzY3N6UXUlBELdAFryxjUbwzyd7eHpycnEinJwqK1xo45nHsOx6gEw5cFDTHKwlBRBmvLM6swkXBIsY5gVYRRJRBBxwf0A2Ei4LTjnMC/5ZhneYgFovJQ9kFNV+C5rklspfIsAs5fM5aXzTYWOcadK7EARKSRxAvIfPhh0VJ7lehUW/4o1KEdAKlUUCtD+BZXLMUZAJcarxv2qU4RkgUYk4WIkruNGTWeOpD9ReUpQj6V9G2KmSiEMScLFcUhtlWeU7p00i0rAgShVggSxclLGd01YFyPg1xdg5vz3Z/D6lnrB4032ZhV8G8GChvVCjWdLh5EueRwC1Vv2bnupGD7nAyb8yTCUa9COobxc5PpO3nCLjNHzffBXN0A92K0yfsexm6/674jYCYmYODA3h8fBRH4WDO4eGhOPKzZFGeoVfBwZeExrVoYpinBVDYdfF8GTp/96D3Txe0fJwPuuwHTz0z1KHABqOSKUIT884N6NZytly/dcAUaUEBRrcst1XkfSu28LoBWPigMlHY7aGWYm0KE7DeBeO8B/oRkwYlSJXA+CLyGFyUXwtQSLG6688m6CzXONUgx2uxtO81EutBq9Xi42BnZwceHh5E6yR4DnMwt91ui1aX5YnC3qX7bMBNDOrPHciyNmWfvTOLJpsRGFwqd8CZH/Hx2WzgGayI2c5CPFWAzq1okAkwUzHPRP7Lfk7tMrDccNu0+/nWYD2zcWaqNLvel33dgCRrTzLJifXCsizY2tri/2/b29vSmQXb8BzmJBIJfk2QhYgyLZRM2feuPPiQZO0qdD6LBi9MIhWveW8POFuUJJQ/hc1YgnlFGRlQwuNKT7Iqh7MhvoYC6OLpbVFkfe9DNfj8xNowHA5DZZlFEmQhokiXh4916F1bgQFogb6Pg63KhpYMdhuEA47VAby74tYLn4PXDZUO6Jc3MPrGk13mFeVK47eAuY/+uc3BeX3OY9iisNuxiXJE9Nsz+xDrhUwWryR4LkwSZCGiTCvm/VjQzeNg02YTBfk6YHWJsyfjRBxy9b47KOcVReSE9V8uiqzvkn4Ta8f9/T3E41gLs/qY/ev8jbUJijSNlYvyQzNKgOcvA148F8TqVPZYzAQrnVFIlJ8ZrywYs0iCrFgUp0bxr4KN8dUoFhjvVNhNNWCiRA4O+HlFcWoU6S1TWI1CovzsoBj4kXm83ZpFEmTlory86uVKZB5n+XH1YnJFCoUarzJNEaV6IY6RibyXV71if+iBVS8S5TVgmiafXWZl9aIwpu2jqO89S6/ePY4jHXrefQuFFdXOx2Jkojiz034TjHn3URJF0IP7KCRKJPlfREFGF00ojXfm45AO+6Qx3wXPucW8bNdcJgDTbXBUGO+ea/gpYmke4+kG9Jq7Mz/e/Q/cj5Eo0eU/iUIQUSFUFPriFkG4hH5xi74KTBAuoV8FRujHJSiiHjjmvZJM/LgEgubQzxVRUNgR+nNFCJ7wziwUFFEMdMArCeITxQGTsIiRTU8UFK81cMwHBbEB+A7cPPW7WKbeXwAAAABJRU5ErkJggg==" InformativeScreenshot="186acfc02613195202467db496a52352.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector, Image" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArea="574, 670, 59, 21" CvTextArgument="Sort by" CvType="Text" DesignTimeRectangle="576, 669, 57, 20" ElementType="Text" FriendlyName="'Sort by'" FullSelectorArgument="&lt;webctrl aaname='Sort by' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sort by' tag='SPAN' type='' class='' check:innerText='Sort by' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAAYCAYAAABJA/VsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOQSURBVFhH7VdRa9pQFN7/dA+RokikYAe2UAeVQizUh41R3UMKZqA+tLDmQQeaBy0lpUzEQhFGhSorQhEKUggFEb6dm3tjE43YMmFd2w8E7825Oee75zvn3rzDK8Qb6deCN9KvBW+kXwtmSVt9mIdpJGQJ7wMB+kkIxxSox11YY2GzLNx1YXzR0RZDfwxgbFEcW1X6txx4SVttaKucaFTJQPum0S+DlNiA4A45XiLxQSVJ79X+Lel+KU5ByNAuLDHzgH6JBSgh2xiJmb/HsyDdzrEszwni/ieylO1w8VJMcFhXNaiKjKAohaiion7l3jQRdM5EOx+37YKyiu8qs3f9cvOoO6TLaJ8XkIww1VHJbWRguPzwhCVhzOxMH/oH8ul6v4f08FihhTKyp4/bU+tCQ5SR2FRhnLZwfnyAdIwF5VaLCFqSyE5DvWnCqLTwu9dCfT9Gtgr0Jq3tDYX9NFzrpRg+l0ycn1ahbgo/baG8QRVJiiVZmYr9WsdaIITiLzEmeGt6PID5SaaXkZMVGam9AyLTRm/oI+nxJYoRngFPnY+7ONyg+Y0y7TGDCDrwGeZU1TxJ3oE49GsxxTCmDDI/E9kPUd9xjzn6R7SxkQI6rhi9pAWGPRP6noI1W0rMIWUzkkSx6Xpdp4AwzWfPZjeEKyYmgnTkOVuTTyK9UyNaXgx+JGg9SfqWj7lft8R5YsJ5b0n6kvbgfoBek+T0kdfSRD4k7QdiU7CfBUjibLAk0n41b/sh6XbEeFhDivxOYrQT43ousJi0g/EQBpOPJIJ8NqTdMVgwd8lWqKJTDHFp84cTPJC+pV2SAlg74pXoh06eXuIEuVDeCZRv2GhJpHdNouQFl3ca5p2YIIzOMjSnoD7k0vbj48p0H2XWGKQkdM+RI3BrIssal1NbixrZ6gF69sSSSFOt8k0UcC5S07XOjlZKXjqnUdeOo+yTQ6+8b6jt0wK7cckKsvaNTEPWOYdpQwyX4ycdWT6krZM02YaQPqJjaNGRtSojupKAWiFbx89UPBwjNL6y442eT04QL2Zrmu7D9TzdvWMhceFgnTuG1H4NPZeMHMxeTgow+26lzCcN6xKH28LPdnWmO3OI9bkWBicZrDuXk22V/AiTKYwaGfud6yV/g8c3sv8JpMCg7+2M4wWSttDYIzX4nOsOXhBp+iSm/qPuxijLIeop8z+MXhDpLnS7uVFjLNG3v5idBfAHR2M21JSFKp0AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'Sort by'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_7" Item="[sortBy]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="6">
+                  <x:String>Position</x:String>
+                  <x:String>Name: A to Z</x:String>
+                  <x:String>Name: Z to A</x:String>
+                  <x:String>Price: Low to High</x:String>
+                  <x:String>Price: High to Low</x:String>
+                  <x:String>Created on</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books" DesignTimeRectangle="638, 668, 198, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'Position'" FullSelectorArgument="&lt;webctrl id='products-orderby' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-orderby' tag='SELECT' type='' class='' aaname='' /&gt;" Guid="442a7fcb-da68-457d-9a40-5014adceef61" ImageBase64="" InformativeScreenshot="ab02e7c6fae77f8631e3e12cf98eb9c9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="576, 669, 57, 20" ElementType="Text" FriendlyName="'Sort by'" FullSelectorArgument="&lt;webctrl aaname='Sort by' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sort by' tag='SPAN' type='' class='' check:innerText='Sort by' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAAYCAYAAABJA/VsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOQSURBVFhH7VdRa9pQFN7/dA+RokikYAe2UAeVQizUh41R3UMKZqA+tLDmQQeaBy0lpUzEQhFGhSorQhEKUggFEb6dm3tjE43YMmFd2w8E7825Oee75zvn3rzDK8Qb6deCN9KvBW+kXwtmSVt9mIdpJGQJ7wMB+kkIxxSox11YY2GzLNx1YXzR0RZDfwxgbFEcW1X6txx4SVttaKucaFTJQPum0S+DlNiA4A45XiLxQSVJ79X+Lel+KU5ByNAuLDHzgH6JBSgh2xiJmb/HsyDdzrEszwni/ieylO1w8VJMcFhXNaiKjKAohaiion7l3jQRdM5EOx+37YKyiu8qs3f9cvOoO6TLaJ8XkIww1VHJbWRguPzwhCVhzOxMH/oH8ul6v4f08FihhTKyp4/bU+tCQ5SR2FRhnLZwfnyAdIwF5VaLCFqSyE5DvWnCqLTwu9dCfT9Gtgr0Jq3tDYX9NFzrpRg+l0ycn1ahbgo/baG8QRVJiiVZmYr9WsdaIITiLzEmeGt6PID5SaaXkZMVGam9AyLTRm/oI+nxJYoRngFPnY+7ONyg+Y0y7TGDCDrwGeZU1TxJ3oE49GsxxTCmDDI/E9kPUd9xjzn6R7SxkQI6rhi9pAWGPRP6noI1W0rMIWUzkkSx6Xpdp4AwzWfPZjeEKyYmgnTkOVuTTyK9UyNaXgx+JGg9SfqWj7lft8R5YsJ5b0n6kvbgfoBek+T0kdfSRD4k7QdiU7CfBUjibLAk0n41b/sh6XbEeFhDivxOYrQT43ousJi0g/EQBpOPJIJ8NqTdMVgwd8lWqKJTDHFp84cTPJC+pV2SAlg74pXoh06eXuIEuVDeCZRv2GhJpHdNouQFl3ca5p2YIIzOMjSnoD7k0vbj48p0H2XWGKQkdM+RI3BrIssal1NbixrZ6gF69sSSSFOt8k0UcC5S07XOjlZKXjqnUdeOo+yTQ6+8b6jt0wK7cckKsvaNTEPWOYdpQwyX4ycdWT6krZM02YaQPqJjaNGRtSojupKAWiFbx89UPBwjNL6y442eT04QL2Zrmu7D9TzdvWMhceFgnTuG1H4NPZeMHMxeTgow+26lzCcN6xKH28LPdnWmO3OI9bkWBicZrDuXk22V/AiTKYwaGfud6yV/g8c3sv8JpMCg7+2M4wWSttDYIzX4nOsOXhBp+iSm/qPuxijLIeop8z+MXhDpLnS7uVFjLNG3v5idBfAHR2M21JSFKp0AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Display'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_66" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books?orderby=10" DesignTimeRectangle="1073, 380, 58, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'8'" FullSelectorArgument="&lt;webctrl id='products-pagesize' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-pagesize' tag='SELECT' type='' class='' aaname='' /&gt;" Guid="3daa0915-704e-4f5e-96c5-4e07344aaf93" InformativeScreenshot="3293a440f576c54a9a70e3cbc440ef59.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1009, 381, 59, 20" ElementType="Text" FriendlyName="'Display'" FullSelectorArgument="&lt;webctrl aaname='Display' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Display' tag='SPAN' type='' class='' check:innerText='Display' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAYCAYAAABN9iVRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAO/SURBVFhH7ZffSyJRFMf3/6yHGcIIJdAFC9agCCxwCCK0ZXGhCdSHfHEhF8qHlDAiCYUYCIVaiIFFCCQYAhG+e+6dO3rvOLIYtSzZFwaamXOv53N+3ekTZlgf8LOqD/hZ1Qf8rEqF755iY24O82OXhsVoEtkTC72BsPV0Y3Ib80bcv6b43huodMX9KysYPm7APDRH13cDibDGIfXNEn45wp7p3cEfWOKBKvvnBnR6Hzm00BfP3lT/EzzQQ3WbtYGB+pN4FJD5XiuPrWiIB2peCyGWzKMlA3hQd/eopOOu3UIYW7kmunJbBcE/NlHcSSCywPyQ9n8U75+vsK9RhQYw9C8zyn5TwnsbzCHbEg988H26X6QZkdgroXrdRKt2hK1l5mQGjWfXxl0TQmRZg76W53bVYhIR2kffPMWQ1Q/vCLCogWKN9r6uo5Jz180v59ERgbMOqEU1E5Yyn/popMlu+4xS6GpqeHTyBDeHjRPhkQ/eOqD1X8ojAKa7I8Qos4WWaBaxhoNKDjoUWJ0Ct9+Q7UbwvfMMZdxXCST7OK4G6Zb5qKlziFUE/eZWzUN/CbywmQTvOhLG7rEF28u0X3yNzzmmgQWTZZZmCpcPfqK4XRSlB3E/aKOwpJa+c26QTRLVEfsL4C2T9+gkeDhtFNfck4FnN5yAUTxDRwaYCNVFZZ3WrYvSn2T37MDusJYqwUxT2Yv+l4PZyYWk0ndQT5FNqk5/jTQ1vBtBKWt+eKH+7zaqPzKjwUfVYN6In/4bPLUDT5DfTgks+/aIIrGTRekgyZ8pPvD2DKFwS38/1WHQe+NcRp8aXkz7seE1Dq+od4UsleEw8nwNOdbhb0cSZb9YaLv3PnieTbovdqTaJXlDWPXBRukz7ZVr06xgCZN8FpoKfnjOe84xKfCUuVQYujRRuQb3KJIjKjw59q2plGGvZtD+IltMCryoCv8wHVBJp91q8CeAz58l+kijKa9/vRr7NgmGD/jCW1nyvvDUCa3C0xYVFiANsVQelQvqy4tTFJJhsqGyt9Rpz0o3ljpyj7pcwg0sBX4YEAWeMl9g+9CavTLq4hg14nRcLtAl+TCUXcYK2euadIJICoYfuzRE1gwUavdwlLOT5INnsi+yUq9Tb65m6INGyrG35oJ6mALD7PSlOPZPfPv74DHoocXOdTHg2DDdp1Ol++j29MqxLQw92Sivkq3cppJU+H+lgIC9jdxWCfraY3rf8A8lKntphvj0LuEdq0yzKoMEaw/vmyFA7xP+ctedI/EsGt4/PGMC/gDiFp+AaJLOeQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'Display'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_8" Item="[displayPerPage]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="3">
+                  <x:String>4</x:String>
+                  <x:String>8</x:String>
+                  <x:String>12</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books?pagesize=8" DesignTimeRectangle="1073, 668, 58, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'8'" FullSelectorArgument="&lt;webctrl id='products-pagesize' tag='SELECT' innertext='4 8 12 ' visibleinnertext='4&amp;#xA;8&amp;#xA;12' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-pagesize' tag='SELECT' innertext='4 8 12 ' visibleinnertext='4&amp;#xA;8&amp;#xA;12' type='' class='' aaname='' /&gt;" Guid="23754c06-cf91-41c1-bafa-7d7a222725e7" ImageBase64="" InformativeScreenshot="88342f5e10706eb45d2805f52cefcc7b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1009, 669, 59, 20" ElementType="Text" FriendlyName="'Display'" FullSelectorArgument="&lt;webctrl aaname='Display' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Display' tag='SPAN' type='' class='' check:innerText='Display' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD8AAAAYCAYAAABN9iVRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAO/SURBVFhH7ZffSyJRFMf3/6yHGcIIJdAFC9agCCxwCCK0ZXGhCdSHfHEhF8qHlDAiCYUYCIVaiIFFCCQYAhG+e+6dO3rvOLIYtSzZFwaamXOv53N+3ekTZlgf8LOqD/hZ1Qf8rEqF755iY24O82OXhsVoEtkTC72BsPV0Y3Ib80bcv6b43huodMX9KysYPm7APDRH13cDibDGIfXNEn45wp7p3cEfWOKBKvvnBnR6Hzm00BfP3lT/EzzQQ3WbtYGB+pN4FJD5XiuPrWiIB2peCyGWzKMlA3hQd/eopOOu3UIYW7kmunJbBcE/NlHcSSCywPyQ9n8U75+vsK9RhQYw9C8zyn5TwnsbzCHbEg988H26X6QZkdgroXrdRKt2hK1l5mQGjWfXxl0TQmRZg76W53bVYhIR2kffPMWQ1Q/vCLCogWKN9r6uo5Jz180v59ERgbMOqEU1E5Yyn/popMlu+4xS6GpqeHTyBDeHjRPhkQ/eOqD1X8ojAKa7I8Qos4WWaBaxhoNKDjoUWJ0Ct9+Q7UbwvfMMZdxXCST7OK4G6Zb5qKlziFUE/eZWzUN/CbywmQTvOhLG7rEF28u0X3yNzzmmgQWTZZZmCpcPfqK4XRSlB3E/aKOwpJa+c26QTRLVEfsL4C2T9+gkeDhtFNfck4FnN5yAUTxDRwaYCNVFZZ3WrYvSn2T37MDusJYqwUxT2Yv+l4PZyYWk0ndQT5FNqk5/jTQ1vBtBKWt+eKH+7zaqPzKjwUfVYN6In/4bPLUDT5DfTgks+/aIIrGTRekgyZ8pPvD2DKFwS38/1WHQe+NcRp8aXkz7seE1Dq+od4UsleEw8nwNOdbhb0cSZb9YaLv3PnieTbovdqTaJXlDWPXBRukz7ZVr06xgCZN8FpoKfnjOe84xKfCUuVQYujRRuQb3KJIjKjw59q2plGGvZtD+IltMCryoCv8wHVBJp91q8CeAz58l+kijKa9/vRr7NgmGD/jCW1nyvvDUCa3C0xYVFiANsVQelQvqy4tTFJJhsqGyt9Rpz0o3ljpyj7pcwg0sBX4YEAWeMl9g+9CavTLq4hg14nRcLtAl+TCUXcYK2euadIJICoYfuzRE1gwUavdwlLOT5INnsi+yUq9Tb65m6INGyrG35oJ6mALD7PSlOPZPfPv74DHoocXOdTHg2DDdp1Ol++j29MqxLQw92Sivkq3cppJU+H+lgIC9jdxWCfraY3rf8A8lKntphvj0LuEdq0yzKoMEaw/vmyFA7xP+ctedI/EsGt4/PGMC/gDiFp+AaJLOeQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'View as'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_67" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books?orderby=10" DesignTimeRectangle="1568, 309, 73, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'Grid'" FullSelectorArgument="&lt;webctrl id='products-viewmode' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-viewmode' tag='SELECT' type='' class='' aaname='' /&gt;" Guid="290dd536-5a67-4389-8a9b-4316b566004c" InformativeScreenshot="ec3b79c71584572576f1e1b7153d6266.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1500, 310, 63, 20" ElementType="Text" FriendlyName="'View as'" FullSelectorArgument="&lt;webctrl aaname='View as' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='View as' tag='SPAN' type='' class='' check:innerText='View as' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAYCAYAAAChg0BHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQGSURBVFhH7VZRS+NKGL3/M31IkBZpEVpBBbOw5UIVtlyuD5pFImwXbGDvi12wD7YPWiQiW0oLElhWUEECS56KEIRSOPvNZFInk8br692bA4XO5JuZb86c78z8gRwL5GRIyMmQkJMhISdDQk6GhJwMCQsyZsMDGJqG5mUoepZhhuFHHQW9BW8eoP9eQ+F9D4H4+l/HizKev8HSaXO755iKrhSeXDSJsNLxD2r8zmQQbo+LKGgNXGSwMR006PsGur7o+M2Q9IzHDmp08vWzZWetKiFDGcEYTqPMS66g6ag0bFzcxaUXwv2QHhNeNimW1u3LpyBi979RcWYhxMPAxk61KNbTYJRNWGf39EVCeI/+vonKihIzF98FFAP10d2iAVtd+qfA72KTJtoZxAmnyZh5bdSo1Ix3NvpXY0yuerDfkcdoZbRuovSCszq1m3CfeJPD+8RilI2LknzNw/yTDRqnwzzqwR3ReoMO9rbZXDqNU/Jca8A5czEZuegfmpy8zdPkLhUyskvBP6mScR5g+Cw6UmRERBr7rsJ4iOE+JRgTzNWnEzn8I+EHnFUNlbUyCqtt3Ire2fUB5ZFdsmxcZ72IyicvqZzY+6ifI+ihThu3J1EzAqnubx2lRlKhKTLiE6mdSGzMo4SNj7JkFTJ+dmHSOPOYsU+nJP0ujohIrY4+D4zmKjnMhAk8WRPdQRulRYxQi1qCb4LIK1aZIMfYbsF9mGKmlIaMNBk0Bb8+pVPCd5ZoEc530eZQyLhp0YapnfkjNYjD4htd73ClcAWwteZj2BRnXbMtRIQlDiQL8xnC4B4ek/8XG80t4R8SkcHlHi9fnodeRI18rD/y/80zBJTN8+RTPrKcjBf5ZyMqgUgF3mea+3BMvZFhGp+JMV5KtP7iNJYjscmVMmrrDVhf2rDWpbxizKd4GPXg/CUZ6Z8UIxGynAxRFvw9IWSmmk2KDHETvek0RSla16zuX0yS+9J2FxNmsrIyl2F6jh2ao0QeFSRMw+dzpsiQQWryT5mRJwlfTgbBPyWnpoQmV1lGppAhDLSwamOSvNcwOSTpUv9w0R+NNXYb5BdVdB5Ft9ciiW9gc4O+xQaYBaHEpDES7v7ht16c12xCN9xqWSlxyupq7+1kRMZGbr1GMl5616tk0AKUYIUlsmLCGURXq/OhShvUU28XrgIWy572oi9WDPMXa5heMYEpxbISiddinnFUR0nXYbAyiPN69tBai+Ksr+eRoX/dg8lMlZUJnyxCNhn0KL/YfS2xNBkM4d05bOnRVarS/T5KEsFxy3yJYhJEB+hus3HyFZ6N8K4HKzZMboxtuI8hbh16ScvPgCcPHckrmL/sHI8TfsHwChn/P+RkSMjJkJCTsQDwC1sCVclkEIppAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'View as'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_9" Item="[viewAs]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="2">
+                  <x:String>Grid</x:String>
+                  <x:String>List</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books?orderby=10&amp;pagesize=12&amp;viewmode=list" DesignTimeRectangle="1568, 594, 73, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'List'" FullSelectorArgument="&lt;webctrl id='products-viewmode' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='products-viewmode' tag='SELECT' type='' class='' aaname='' /&gt;" Guid="e466cef8-4613-48d9-ba7c-2b280cdd47e3" ImageBase64="" InformativeScreenshot="16adf0c59fe7794d191e54b6cfe09daf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="1500, 595, 63, 20" ElementType="Text" FriendlyName="'View as'" FullSelectorArgument="&lt;webctrl aaname='View as' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='View as' tag='SPAN' type='' class='' check:innerText='View as' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEMAAAAYCAYAAAChg0BHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQGSURBVFhH7VZRS+NKGL3/M31IkBZpEVpBBbOw5UIVtlyuD5pFImwXbGDvi12wD7YPWiQiW0oLElhWUEECS56KEIRSOPvNZFInk8br692bA4XO5JuZb86c78z8gRwL5GRIyMmQkJMhISdDQk6GhJwMCQsyZsMDGJqG5mUoepZhhuFHHQW9BW8eoP9eQ+F9D4H4+l/HizKev8HSaXO755iKrhSeXDSJsNLxD2r8zmQQbo+LKGgNXGSwMR006PsGur7o+M2Q9IzHDmp08vWzZWetKiFDGcEYTqPMS66g6ag0bFzcxaUXwv2QHhNeNimW1u3LpyBi979RcWYhxMPAxk61KNbTYJRNWGf39EVCeI/+vonKihIzF98FFAP10d2iAVtd+qfA72KTJtoZxAmnyZh5bdSo1Ix3NvpXY0yuerDfkcdoZbRuovSCszq1m3CfeJPD+8RilI2LknzNw/yTDRqnwzzqwR3ReoMO9rbZXDqNU/Jca8A5czEZuegfmpy8zdPkLhUyskvBP6mScR5g+Cw6UmRERBr7rsJ4iOE+JRgTzNWnEzn8I+EHnFUNlbUyCqtt3Ire2fUB5ZFdsmxcZ72IyicvqZzY+6ifI+ihThu3J1EzAqnubx2lRlKhKTLiE6mdSGzMo4SNj7JkFTJ+dmHSOPOYsU+nJP0ujohIrY4+D4zmKjnMhAk8WRPdQRulRYxQi1qCb4LIK1aZIMfYbsF9mGKmlIaMNBk0Bb8+pVPCd5ZoEc530eZQyLhp0YapnfkjNYjD4htd73ClcAWwteZj2BRnXbMtRIQlDiQL8xnC4B4ek/8XG80t4R8SkcHlHi9fnodeRI18rD/y/80zBJTN8+RTPrKcjBf5ZyMqgUgF3mea+3BMvZFhGp+JMV5KtP7iNJYjscmVMmrrDVhf2rDWpbxizKd4GPXg/CUZ6Z8UIxGynAxRFvw9IWSmmk2KDHETvek0RSla16zuX0yS+9J2FxNmsrIyl2F6jh2ao0QeFSRMw+dzpsiQQWryT5mRJwlfTgbBPyWnpoQmV1lGppAhDLSwamOSvNcwOSTpUv9w0R+NNXYb5BdVdB5Ft9ciiW9gc4O+xQaYBaHEpDES7v7ht16c12xCN9xqWSlxyupq7+1kRMZGbr1GMl5616tk0AKUYIUlsmLCGURXq/OhShvUU28XrgIWy572oi9WDPMXa5heMYEpxbISiddinnFUR0nXYbAyiPN69tBai+Ksr+eRoX/dg8lMlZUJnyxCNhn0KL/YfS2xNBkM4d05bOnRVarS/T5KEsFxy3yJYhJEB+hus3HyFZ6N8K4HKzZMboxtuI8hbh16ScvPgCcPHckrmL/sHI8TfsHwChn/P+RkSMjJkJCTsQDwC1sCVclkEIppAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Computing and Internet'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_68" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/books?orderby=10&amp;pagesize=12&amp;viewmode=list" DesignTimeRectangle="797, 747, 844, 41" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Computing and Internet'" FullSelectorArgument="&lt;webctrl aaname='Computing and Internet' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Computing and Internet' tag='A' type='' class='' check:innerText='Computing and Internet' /&gt;" Guid="6a9bdf5c-d170-45d5-86b6-f02f035c1e7f" InformativeScreenshot="025823c1199cad7c01e93b44c289cf4d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Books' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text 'Computing and Internet'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" TextString="[productName]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1107, 548, 495, 27" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Computing and Internet'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' /&gt;" Guid="95cb5f5c-51b9-4e2e-82c7-e0dda3703e44" ImageBase64="" InformativeScreenshot="228a273f49ccf2ae44202cb6d7a308df.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="410,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Product Name :&quot;+productName]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add to cart'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_69" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1270, 924, 154, 42" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Add to cart'" FullSelectorArgument="&lt;webctrl id='add-to-cart-button-13' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='add-to-cart-button-13' tag='INPUT' type='button' class='button-1 add-to-cart-button' aaname='Add to cart' check:text='Add to cart' /&gt;" Guid="1fa05b96-2316-4096-86bf-ae888bae0952" InformativeScreenshot="30fd91cab7206d318dfe13a460b1eb15.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Shopping cart'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_70" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1400, 297, 111, 21" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Shopping cart'" FullSelectorArgument="&lt;webctrl parentid='topcartlink' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='topcartlink' tag='SPAN' type='' class='cart-label' aaname='Shopping cart' check:innerText='Shopping cart' /&gt;" Guid="ed6b586b-5531-4f11-a420-01934c7e76a2" InformativeScreenshot="dbcbbce11174f5437c0a25b4b5e2f4e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="checked" DelayAfter="3" DisplayName="Get Attribute 'Checkbox'" sap:VirtualizedContainerService.HintSize="410,211.33333333333334" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_6" Result="[checkBox]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/cart" DesignTimeRectangle="1175, 579, 20, 20" DesignTimeScaleFactor="1.5" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' type='checkbox' class='' aaname='' /&gt;" Guid="c80f3b66-a680-4f41-ba17-95434a74a88c" InformativeScreenshot="17118736d43c830b55e577e9505ece74.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Shopping Cart' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <If Condition="[checkBox=False]" sap:VirtualizedContainerService.HintSize="410,876.6666666666666" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,246.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_71" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/cart" DesignTimeRectangle="1175, 579, 20, 20" DesignTimeScaleFactor="1.5" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' type='checkbox' class='' aaname='' /&gt;" Guid="1158c8b8-d4c3-46db-ad21-50eee89fc424" InformativeScreenshot="e22d97abf79467612bb9ad9ae0fd58a6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Shopping Cart' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,446" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_72" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/cart" DesignTimeRectangle="1148, 509, 24, 24" DesignTimeScaleFactor="1.5" FriendlyName="'SPAN'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;span' isleaf='1' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' isleaf='1' tag='SPAN' class='ui-button-icon-primary ui-icon ui-icon-closethick' aaname='' /&gt;" Guid="8187ffee-def1-4450-bad1-6de881af4aa6" InformativeScreenshot="389e33cd07a6270327d37fb1795a88c8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Shopping Cart' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkbox'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_73" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/cart" DesignTimeRectangle="1175, 579, 20, 20" DesignTimeScaleFactor="1.5" ElementType="CheckBox" FriendlyName="'Checkbox'" FullSelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='termsofservice' tag='INPUT' type='checkbox' class='' aaname='' /&gt;" Guid="1158c8b8-d4c3-46db-ad21-50eee89fc424" InformativeScreenshot="e22d97abf79467612bb9ad9ae0fd58a6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Shopping Cart' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Checkout'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_74" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/cart" DesignTimeRectangle="1454, 652, 180, 47" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Checkout'" FullSelectorArgument="&lt;webctrl id='checkout' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='checkout' tag='BUTTON' type='submit' class='button-1 checkout-button' aaname='                                 Checkout                             ' check:innerText='Checkout' /&gt;" Guid="1bef3d07-5402-4b41-87fc-633266b156ae" InformativeScreenshot="7663b24f1cc626ffdc176db37ceba1a2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Shopping Cart' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Country'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_75" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 674, 402, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'Select country'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_CountryId' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_CountryId' tag='SELECT' type='' class='valid' aaname='Country:' /&gt;" Guid="7672f725-a0a3-4558-9442-d512fb2170d8" InformativeScreenshot="8d918f90d3b2e66c9d4ded83af466c37.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 675, 143, 21" ElementType="Text" FriendlyName="'Country'" FullSelectorArgument="&lt;webctrl aaname='Country:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Country:' tag='LABEL' type='' class='' check:innerText='Country:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAZCAYAAAA1zhyrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAP5SURBVGhD7ZrdSyJRGIf3n/RmIJRoiIZAApcwAqPwYmERFzQsFimiRZEiGLCLwcU2CvuCKNCgiGShII1sLxLy4rfvmRn1TDOtmdPH1rl4LubMe3T0POe87zn6qXF3C4HADYRMAtcQMglcQ8gkcA0hk8A1hEwC13CWqV7GTiaCiSEvJI8HHo8E31AIca2EWt0h/jW4KiH7NYV9p3uCV8Eu05mKiT4SSFIQTqrIbxWws6ZiLqzoYknjKs7fgFDnapAkTwiZ3hBWma4LiPeTSIMJ7Fxx7SaVtQh8JJQ8f2C799IImd4eFpnKy34aIC/mDq1BbS6ghb1QJlWUufba0SrioYFWSpRDMWhHVa5fGdkg3ZvZ5dqc2pvXBVS2k5iQJXo9Wg37/YiqlGLNfvsz7H049P7NvjnsJ/3GKirHoKbYZwoie86/L+MEmWGKsT2T4KlwMhlfrmc4ZRGlE7W9BGQ2cIEYsmuUErUFhIeYBAOY3WsK1aVMgwOQ+wKIqzk9xcZH2etJiG7e6HGV4wK0aYXaQsiwNHx80e4rSfQsCWhbOWRVkvJcxRg935haNt/D5DQFhZ849DmYmLY4waNpy1SnFMdmeaxgC3qQ+gHmWFoMLlnrqHoJiyPUPrJkitmlTLSSrPzm4uq7mJWs/e1prtn3C/LXzTYGraaT1B6kWq/VRqtwmmTsT6LYfG4hU8+0ZTJnsH3A/0ExqddQ0XVjxeCpaCEaHAWZU3bdpUwBktMpjhPiQZnuScMwnoVPdcYk8CVfv/Z7T3BpjmZ/tyuTPpubwjjd81CqY9ddymQTojeZGpermOBXHX0SUIor3osT9AQnkzkYHWqmcjoAeTSCPJvl/4tMd1Xkw3RvchUVui7Oe40UZ4sT9AIn0yN2c3Uq0lkt1Kw1Oqa5gFn7mAMdzrV2ZAb3a6HnkukWt+sRig9BuzRSnJI+scUIesMiU+P6F6JscB3Pmao4Tgdpyy1hLGumi04F+OACjs2++srAF7xEbTumy/gSMjX+GJ8tPJOgXZwfK2cOMYKesMpE1A6T+MyE4k/AtRSi+vbcA5kGnl9dHnc0QCvVzyn97EcOLdC2nbb2P6ag9AUxxgR4gkw1ej22iobTOevRwEMy3d1g45sESaJna+0yOcy0LHZzT8cmk85VCdp0CIp5aKgfRI5OYXHL+Yu2H1omkT/jDy0ZtLKpEfj7jTMj30gE2aOqcQD5BJka1wdYHDd/OxxXqRbqJBOlus2IHu9fdkhxQqaecZbpvULCSI6n4QI3+EAyVbERoVXR3NE5xwh64QPIdIL89wTi+r8evFTH2XeeAnf4ADKVkGEbAomK9eX2j8UC9/lYNZPgWREyCVziFn8BJsNu68wUIlIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'Country'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_10" Item="[selectCountry]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>Select country</x:String>
+                  <x:String>United States</x:String>
+                  <x:String>Canada</x:String>
+                  <x:String>Afghanistan</x:String>
+                  <x:String>Albania</x:String>
+                  <x:String>Algeria</x:String>
+                  <x:String>American Samoa</x:String>
+                  <x:String>Andorra</x:String>
+                  <x:String>Angola</x:String>
+                  <x:String>Anguilla</x:String>
+                  <x:String>Antarctica</x:String>
+                  <x:String>Antigua and Barbuda</x:String>
+                  <x:String>Argentina</x:String>
+                  <x:String>Armenia</x:String>
+                  <x:String>Aruba</x:String>
+                  <x:String>Australia</x:String>
+                  <x:String>Austria</x:String>
+                  <x:String>Azerbaijan</x:String>
+                  <x:String>Bahamas</x:String>
+                  <x:String>Bahrain</x:String>
+                  <x:String>Bangladesh</x:String>
+                  <x:String>Barbados</x:String>
+                  <x:String>Belarus</x:String>
+                  <x:String>Belgium</x:String>
+                  <x:String>Belize</x:String>
+                  <x:String>Benin</x:String>
+                  <x:String>Bermuda</x:String>
+                  <x:String>Bhutan</x:String>
+                  <x:String>Bolivia</x:String>
+                  <x:String>Bosnia and Herzegowina</x:String>
+                  <x:String>Botswana</x:String>
+                  <x:String>Bouvet Island</x:String>
+                  <x:String>Brazil</x:String>
+                  <x:String>British Indian Ocean Territory</x:String>
+                  <x:String>Brunei Darussalam</x:String>
+                  <x:String>Bulgaria</x:String>
+                  <x:String>Burkina Faso</x:String>
+                  <x:String>Burundi</x:String>
+                  <x:String>Cambodia</x:String>
+                  <x:String>Cameroon</x:String>
+                  <x:String>Cape Verde</x:String>
+                  <x:String>Cayman Islands</x:String>
+                  <x:String>Central African Republic</x:String>
+                  <x:String>Chad</x:String>
+                  <x:String>Chile</x:String>
+                  <x:String>China</x:String>
+                  <x:String>Christmas Island</x:String>
+                  <x:String>Cocos (Keeling) Islands</x:String>
+                  <x:String>Colombia</x:String>
+                  <x:String>Comoros</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 567, 402, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'United States'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_CountryId' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_CountryId' tag='SELECT' type='' class='valid' aaname='Country:' /&gt;" Guid="c299a72f-ab40-40a3-9037-8951ffdb3e10" ImageBase64="" InformativeScreenshot="4708e9d9690a1efb1b015a4722a900a0.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 568, 143, 21" ElementType="Text" FriendlyName="'Country'" FullSelectorArgument="&lt;webctrl aaname='Country:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Country:' tag='LABEL' type='' class='' check:innerText='Country:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAZCAYAAAA1zhyrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAP5SURBVGhD7ZrdSyJRGIf3n/RmIJRoiIZAApcwAqPwYmERFzQsFimiRZEiGLCLwcU2CvuCKNCgiGShII1sLxLy4rfvmRn1TDOtmdPH1rl4LubMe3T0POe87zn6qXF3C4HADYRMAtcQMglcQ8gkcA0hk8A1hEwC13CWqV7GTiaCiSEvJI8HHo8E31AIca2EWt0h/jW4KiH7NYV9p3uCV8Eu05mKiT4SSFIQTqrIbxWws6ZiLqzoYknjKs7fgFDnapAkTwiZ3hBWma4LiPeTSIMJ7Fxx7SaVtQh8JJQ8f2C799IImd4eFpnKy34aIC/mDq1BbS6ghb1QJlWUufba0SrioYFWSpRDMWhHVa5fGdkg3ZvZ5dqc2pvXBVS2k5iQJXo9Wg37/YiqlGLNfvsz7H049P7NvjnsJ/3GKirHoKbYZwoie86/L+MEmWGKsT2T4KlwMhlfrmc4ZRGlE7W9BGQ2cIEYsmuUErUFhIeYBAOY3WsK1aVMgwOQ+wKIqzk9xcZH2etJiG7e6HGV4wK0aYXaQsiwNHx80e4rSfQsCWhbOWRVkvJcxRg935haNt/D5DQFhZ849DmYmLY4waNpy1SnFMdmeaxgC3qQ+gHmWFoMLlnrqHoJiyPUPrJkitmlTLSSrPzm4uq7mJWs/e1prtn3C/LXzTYGraaT1B6kWq/VRqtwmmTsT6LYfG4hU8+0ZTJnsH3A/0ExqddQ0XVjxeCpaCEaHAWZU3bdpUwBktMpjhPiQZnuScMwnoVPdcYk8CVfv/Z7T3BpjmZ/tyuTPpubwjjd81CqY9ddymQTojeZGpermOBXHX0SUIor3osT9AQnkzkYHWqmcjoAeTSCPJvl/4tMd1Xkw3RvchUVui7Oe40UZ4sT9AIn0yN2c3Uq0lkt1Kw1Oqa5gFn7mAMdzrV2ZAb3a6HnkukWt+sRig9BuzRSnJI+scUIesMiU+P6F6JscB3Pmao4Tgdpyy1hLGumi04F+OACjs2++srAF7xEbTumy/gSMjX+GJ8tPJOgXZwfK2cOMYKesMpE1A6T+MyE4k/AtRSi+vbcA5kGnl9dHnc0QCvVzyn97EcOLdC2nbb2P6ag9AUxxgR4gkw1ej22iobTOevRwEMy3d1g45sESaJna+0yOcy0LHZzT8cmk85VCdp0CIp5aKgfRI5OYXHL+Yu2H1omkT/jDy0ZtLKpEfj7jTMj30gE2aOqcQD5BJka1wdYHDd/OxxXqRbqJBOlus2IHu9fdkhxQqaecZbpvULCSI6n4QI3+EAyVbERoVXR3NE5xwh64QPIdIL89wTi+r8evFTH2XeeAnf4ADKVkGEbAomK9eX2j8UC9/lYNZPgWREyCVziFn8BJsNu68wUIlIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'State / province'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_76" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 593, 313, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'AA (Armed'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_StateProvinceId' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_StateProvinceId' tag='SELECT' type='' class='valid' aaname='State / province:' /&gt;" Guid="5f3309ad-408b-49ae-8d33-72ed0cf04462" InformativeScreenshot="55229865a7d5a96edbf701c59fe2314b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 594, 143, 21" ElementType="Text" FriendlyName="'State / province'" FullSelectorArgument="&lt;webctrl aaname='State / province:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='State / province:' tag='LABEL' type='' class='' check:innerText='State / province:' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NSelectItem DisplayName="Select Item 'State / province'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NSelectItem_11" Item="[selectState]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NSelectItem.Items>
+                <scg:List x:TypeArguments="x:String" Capacity="50">
+                  <x:String>District of Columbia</x:String>
+                  <x:String>Federated States of Micronesia</x:String>
+                  <x:String>Florida</x:String>
+                  <x:String>Georgia</x:String>
+                  <x:String>Guam</x:String>
+                  <x:String>Hawaii</x:String>
+                  <x:String>Idaho</x:String>
+                  <x:String>Illinois</x:String>
+                  <x:String>Indiana</x:String>
+                  <x:String>Iowa</x:String>
+                  <x:String>Kansas</x:String>
+                  <x:String>Kentucky</x:String>
+                  <x:String>Louisiana</x:String>
+                  <x:String>Maine</x:String>
+                  <x:String>Marshall Islands</x:String>
+                  <x:String>Maryland</x:String>
+                  <x:String>Massachusetts</x:String>
+                  <x:String>Michigan</x:String>
+                  <x:String>Minnesota</x:String>
+                  <x:String>Mississippi</x:String>
+                  <x:String>Missouri</x:String>
+                  <x:String>Montana</x:String>
+                  <x:String>Nebraska</x:String>
+                  <x:String>Nevada</x:String>
+                  <x:String>New Hampshire</x:String>
+                  <x:String>New Jersey</x:String>
+                  <x:String>New Mexico</x:String>
+                  <x:String>New York</x:String>
+                  <x:String>North Carolina</x:String>
+                  <x:String>North Dakota</x:String>
+                  <x:String>Northern Mariana Islands</x:String>
+                  <x:String>Ohio</x:String>
+                  <x:String>Oklahoma</x:String>
+                  <x:String>Oregon</x:String>
+                  <x:String>Palau</x:String>
+                  <x:String>Pennsylvania</x:String>
+                  <x:String>Puerto Rico</x:String>
+                  <x:String>Rhode Island</x:String>
+                  <x:String>South Carolina</x:String>
+                  <x:String>South Dakota</x:String>
+                  <x:String>Tennessee</x:String>
+                  <x:String>Texas</x:String>
+                  <x:String>Utah</x:String>
+                  <x:String>Vermont</x:String>
+                  <x:String>Virgin Islands</x:String>
+                  <x:String>Virginia</x:String>
+                  <x:String>Washington</x:String>
+                  <x:String>West Virginia</x:String>
+                  <x:String>Wisconsin</x:String>
+                  <x:String>Wyoming</x:String>
+                </scg:List>
+              </uix:NSelectItem.Items>
+              <uix:NSelectItem.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 593, 313, 26" DesignTimeScaleFactor="1.5" ElementType="DropDown" FriendlyName="'Oklahoma'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_StateProvinceId' tag='SELECT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_StateProvinceId' tag='SELECT' type='' class='valid' aaname='State / province:' /&gt;" Guid="6145d291-983f-4eec-99f2-222eac7e3848" ImageBase64="" InformativeScreenshot="c676b7870e7dd8bf9e39be39b3fb30eb.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 594, 143, 21" ElementType="Text" FriendlyName="'State / province'" FullSelectorArgument="&lt;webctrl aaname='State / province:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='State / province:' tag='LABEL' type='' class='' check:innerText='State / province:' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NSelectItem.Target>
+            </uix:NSelectItem>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'City'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="410,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_48" InteractionMode="DebuggerApi" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[selectCity]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 348, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT BillingNewAddress…'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_City' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_City' tag='INPUT' type='text' class='input-validation-error text-box single-line' aaname='City:' /&gt;" Guid="ef952299-c342-45aa-9e17-72ffff916591" InformativeScreenshot="3cdef64e6a84f9fe450eef42fc5765f7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 350, 143, 21" ElementType="Text" FriendlyName="'City'" FullSelectorArgument="&lt;webctrl aaname='City:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='City:' tag='LABEL' type='' class='' check:innerText='City:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAZCAYAAAA1zhyrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAALVSURBVGhD7ZrPSyJhGMf3n5zLC4sRyOIQRLAhRqAU3hZpYQuLReoQKLKxMGCHYRfbpcWoIAz0kCzNxSCLbA8KefjuMz/Ud5xpdw6TMPYcPqDvfJ3LfHie533HN4OnHhgmDFgmJjRYJiY0WCYmNFgmJjRYJiY0/GXqGzgt55BJxCAUBYoiMJdIY1NvotuXswYqKbqe0tAert03UflQxMUow7wWvDJda8i8JUGEimxBQ/WkhtMjDbtZ1RJLrJI4I6G8MrW1FMmXZ5leIW6ZHmrYnCc53uVxei+tO3SOcpgjoeJ7dc+1ISzT68Ulk3GwSCLEsHvpDo25gZ6NQV3TYFjf3ZXpYps+W23RYfvMuWcKlfbkvVooL1Clo4x7nYkqkkz2w1UWio4oQXDL1LmqQd9SSZ40ymZ7vLrBoK1hhcRa0Qz3b38XocrinuctAT05JjKMZepTizOryaeaJ/Q8QWYmqmZr7oyJUSLp5gtoDOcvlinyjGVyKojZmuTAvwk2gHf0NK3Jra6OXZrN5grPz15M9JDa3Bl2XqQyEbeHyMhVp1GgQZ5aXEPKMJFHkskR4z8zk1F6j3gyh6pVZQLK9HSHapZya4fo0PfGXsxuca4ME3UkmQLs5vo0pC+RFKNZJ6hMPfR+5mg9Df3WbnFqqeW6zkQfl0yDhx/YECSH7znTHa5KKQhFYKUyHJKDyzT4Y987u52nXdwivl5PXGcij1smontZwLIplHwCrhexkRQkiYI4DejdUd4rU/f7ulXdsqVv9tHAKPuI448CQtB9lr54Wynv5iKPRyaL+yb0rTTUuC2Q+W4unlzH/snkg/bKNHioY3/Veae3qlkz0jDf+5Wz1hcPfFocyxR5/GV6KUgY4XsazswCU5TpDsc5qnTOjs4/w0SZKcjUQvVzHpvWvw5i2Dl/9Mkws8AUZGqinKCKJGgoP2hKwzsza0x3ZmJmGpaJCYke/gKcqzxkDph0ogAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[TestData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="410,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[sheetName]" WorkbookPath="[addressPath]" />
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[TestData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="410,500" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,310" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Address 1'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_49" InteractionMode="DebuggerApi" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[CurrentRow(&quot;Address&quot;).ToString]" Version="V3">
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 660, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT BillingNewAddress…'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_Address1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_Address1' tag='INPUT' type='text' class='input-validation-error text-box single-line' aaname='Address 1:' /&gt;" Guid="94e76208-c447-403a-b574-9f7732d159be" InformativeScreenshot="8db30486faaafcb5ac0194326c329ef4.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="338, 662, 143, 21" ElementType="Text" FriendlyName="'Address 1'" FullSelectorArgument="&lt;webctrl aaname='Address 1:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Address 1:' tag='LABEL' type='' class='' check:innerText='Address 1:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAZCAYAAAA1zhyrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAQESURBVGhD7ZnPaxNBHMX9J/cyUFpCQnERQiGlpAgpikIQQoRUNIdlPShKaCkspIeQkiqVtEmhVGgFi1gKKdiKbQ8J6OH5nf2Rzm5mm1FX0TqHD3Qnb7ObmTff79vtjW9f+9BokkCbSZMY2kyaxNBm0iSGNpMmMbSZNIkRb6a3FqYMA0bKwt5A8nksh6jn6bwnXclnIqq6v5FT7DxJ/6P3/vuINdOeNQljOo2MwVB+cy7VyLnmZhqQkZ7mwPhG02YKITfTxSuUmQHzZRMrMzRpd1ZxItNJub5m6h+1Yc8xGNxI2kwjSM3Uf12iyZqEvdfH4XKW/s5i5eOojnOyZWEh400wy5bQOpKbZLwuOG5ix8q6O59lKtj44n9HjxaykPYqAlXLTKGCxrvT4fe7fNlHvZRDZoJr+Pk5lJ19nIltWkUjpYsqvzYz8WCtjZV/bCP8CSRmOkbjDk0Uz0r8uOdgniZxytqN6Mgga3e9RZ+z0Nhso/H8LsybeczfCk+0ms43E2Nguceka6LutN2K2N+xYFKlZHMV1Nfb6Kw7WHQrRBrV7cBQ/vnTBdhOEx1+fsVrR9nlgx/QxNGFfdtCp8f/jm4Ege3HrknnncPRz645o2byzWO+jCxANIgPdmGnaIFvO+gJ42dbFS+4BxOtqguuYxTRCqqRy4HbalmpGakep9gokaFmlnDIj/37XtwKa1pFhqkCXVtVo4Q2k4wRM8na2kmjQGORIP7hBUyatPLraDg/QE2sOKq6YIHykUU9WsIsnT9r8UpCVUmg8cik+8qjzquFn/N4VWu9P0Zf1rZUNEpcYab/mLCZ/Coy3O0Bn1axQAsaCuLuDjRR+yDoXGin3xMmWlUXZyZ/p8fDUN3xtL21otsO3XE2CZNyVX3zIFTRVDTj0WaSETZT8G4pFqFixZrknNoPaceaKaIbY6bqtjB2FYNjvN90YN8XQnakxSpprkSbSYZgJlrchzzUZlFthNuJS80L0cMg/qfanH/+ZYb7AQbn1Lbz9Ju8J9Of1oygzSTj0kw8T9Cixb5TClogK2Hjgo/t49k0X/ylcLCmSpLh3zOcaFVdjJn8AG6kKuiEgvkpOpVJMBrnrw/6W/TEl0rDfitq6DrrxaFRVDTieDzaTDKGZpKG7AheODew0Dh2jwNDBI/srWUhjwgTraaLM5NgvIkcbF4116lF3TOpUrLLp6aLLqrctKQp11a9gF4rYpYHbt7CVDVKXGEmulf+u/7jp7lg94/5P5wkiJ+9c1CeoQrBzZLKouw08Uwy0eN18Wbyzl/FovDScupmAfZmZME+d1ETcpAxkcaC1Q5nIRXNWLSZZIQDuEbzC2gzaRJDm0mTGNpMmsTQZtIkhjaTJiH6+A4lfPhUf/oOUAAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NTypeInto.Target>
+                    </uix:NTypeInto>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <utat:RandomNumber Decimals="{x:Null}" DisplayName="Random Number" sap:VirtualizedContainerService.HintSize="410,197.33333333333334" sap2010:WorkflowViewState.IdRef="RandomNumber_3" Max="999999" Min="100000" Output="[postalCode]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Zip / postal code'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_50" InteractionMode="DebuggerApi" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[postalCode.ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 703, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT BillingNewAddress…'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_ZipPostalCode' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_ZipPostalCode' tag='INPUT' type='text' class='text-box single-line' aaname='Zip / postal code:' /&gt;" Guid="2bdccdbb-85f6-44a5-b0c7-1c555e79876f" InformativeScreenshot="3beb2275c25f5b8224230d39a634ebc3.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 705, 143, 21" ElementType="Text" FriendlyName="'Zip / postal code'" FullSelectorArgument="&lt;webctrl aaname='Zip / postal code:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Zip / postal code:' tag='LABEL' type='' class='' check:innerText='Zip / postal code:' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <utat:RandomNumber Decimals="{x:Null}" DisplayName="Random Number" sap:VirtualizedContainerService.HintSize="410,197.33333333333334" sap2010:WorkflowViewState.IdRef="RandomNumber_4" Max="9999999999" Min="8000000000" Output="[phoneNumber]" />
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Phone number'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="410,222.66666666666666" sap2010:WorkflowViewState.IdRef="NTypeInto_51" InteractionMode="DebuggerApi" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Text="[phoneNumber.ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="486, 731, 251, 28" DesignTimeScaleFactor="1.5" ElementType="InputBox" FriendlyName="'INPUT BillingNewAddress…'" FullSelectorArgument="&lt;webctrl id='BillingNewAddress_PhoneNumber' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='BillingNewAddress_PhoneNumber' tag='INPUT' type='text' class='text-box single-line' aaname='Phone number:' /&gt;" Guid="c10929d6-8a5d-4d7f-a1f8-f4b6b6573b15" InformativeScreenshot="ffcf24a27788d1031ed86be8febc2e70.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="338, 733, 143, 21" ElementType="Text" FriendlyName="'Phone number'" FullSelectorArgument="&lt;webctrl aaname='Phone number:' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Phone number:' tag='LABEL' type='' class='' check:innerText='Phone number:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJMAAAAZCAYAAAA1zhyrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAASJSURBVGhD7VhnT1RBFPVPEkoIRcFCRzGigKK02AtIiF1irLEXFEGDruDaFRQVxVixoSKK7cPVc5M7mX27k50X3i5G58PJ7s7eObfMmTrt188JcnAIAk5MDoHBickhMDgxOQQGJyaHwODE5BAYIsTU1tZKKSkpUUhLS6O5c8vpbGcHff82zrZfxj9SQ0MdA991Hof4+BfrFyWmjIwMWrd2DW3dulkB7QVz5lBqaiodOniAfv746sQ0SfwXYpo+PZceP3oQYQR8+vieFi+uoeLiYhoZee7ENEn812ICjh09rP6XYtTXL6O+vhBvg9gSZ+bn06mTx9V2CGAlu3f3Di1dWstbJoDv9wcHlI3wIQbwFRUVGfmA58+G2beJLxZsfeh2pv6x+LB6g2/+/Aq6O3CbJ2BrawtlZmYydu1q5z56X+Rw/nyXWvkrKxfQQP8trpnuO16+wtfS0kw7d25nG8Qx8upZBE8iYS0mJIcg8/Jm0JPhIRV8eno6D8aRwwcpFOrh1QtF6e29qPqGL/dyMVEoFK7zTAeVlpZyG/6DjfDBf0FBAfPBtqpqURTf9WtXKDs7i/+DjdjpfLFg60PsbMWk8yG3wsJCBvJdu2Y112XjxhZ1TND7on65uTm0f98ejgV9kMe1q2Hl1yZfna+6uop6es5R19nTNPF1jPtD5CeOH1WciYCVmBBQd3cnB4+AEbgEn5OTTYP3+pUttkBshZiREODo+zc8QzCrPo+NKrsPo2+ppqaaamuXcLs+MEMPB5Xdu7cjVFZWpgYQtujTvGE9xyV2WFWamzcoPmnXYetD7PyISecL/REPBm/Tpja12o19GuV8mxobuJ/09dZPjhP4Dza2+QofVrhXL58qO2DKxASnJpSUlPCqBFsJvq5uGY1//qA4pF2K0X/nJh/qQ38KLDYC3A6zsrK4mLZ8j4bu8+Bt27aFwuHeCEDAsSaDlyueD/ltKyYvnwzelXCfasPEQnxeHytXLI8QCYDjhOwAtvkKn/DrfMlClJhi3eb27t3NotCTNgXvbUdhRTBiI5Ci49MPny5wL7CV3LxxNcKPicvULr9txST9xE7PS9oA9IvnA0A/jANqbpuvKZZkwtcBXIcpeG87ipEIMeFT57KBrQ/5PZVikprZ5muKJZlIuJjibXPwh6Xclg8FRqFxYNW5bGDrQ36vXrUyYjXG+a+8PPps5eXzIyavDwDb3OxZs/gGZ5uvKZZkIuFiincAX7iwkg+dtnxyIMWgvn79QtnhQIoDL9pN12FbHxhcDDLiRvxih+s/JkaQYkK99cM7cqqomKfOUrb5mmJJJhIuJrT5eRrww5efn0cdp04wZ2NjPV+LcWPxvtEI/Pjo7jrD55GmpgZeVdvbd/AtNdatz8vnV0z6swLqgqcWXWA2+ZpiASSev+JpIBZMwcdqR7LeR0usVLofP3wAHuyED4OOQb506YJRSIAfH5j5eMjEwIIfEwEPkahRkGJCG96DxA+eBYYfP4zoB8TL1xQLMCVicnCYDJyYHAKDE5NDYHBicggMTkwOgcGJySEgTNBvKS73baAyJ8wAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_77" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 861, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl parentid='billing-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='billing-buttons-container' tag='INPUT' type='button' class='button-1 new-address-next-step-button' aaname='Continue' check:text='Continue' /&gt;" Guid="c047de2b-a1f0-4782-ac12-4fdf88e46636" InformativeScreenshot="9b9aca78876b3aca9b6acc8022007d71.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_78" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 669, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl parentid='shipping-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shipping-buttons-container' tag='INPUT' type='button' class='button-1 new-address-next-step-button' aaname='Continue' check:text='Continue' /&gt;" Guid="f598ca73-ea4f-47b5-8737-a1b5305b1489" InformativeScreenshot="84bd3e0ceb1982aff0f4f848b5a9a10e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="checked" DisplayName="Get Attribute 'unchecked'" sap:VirtualizedContainerService.HintSize="410,211.33333333333334" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_7" Result="[shippingMethodCheckbox]" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="338, 472, 20, 20" DesignTimeScaleFactor="1.5" ElementType="RadioButton" FriendlyName="'INPUT shippingoption_1'" FullSelectorArgument="&lt;webctrl id='shippingoption_1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='shippingoption_1' tag='INPUT' type='radio' class='' aaname='Next Day Air (0.00)' /&gt;" Guid="5caedf7d-6f42-4b76-bd14-91825cb89bd7" InformativeScreenshot="652ca475249b632b73bfcb26e91cfc55.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="367, 468, 158, 20" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl aaname='Next Day Air (0.00)' parentid='checkout-shipping-method-load' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next Day Air (0.00)' parentid='checkout-shipping-method-load' tag='LABEL' type='' class='' check:innerText='Next Day Air (0.00)' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKIAAAAYCAYAAAB5oyYIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOkSURBVGhD7ZfLceswDEVfky7GrsR2G5pJFcmMW8hGJWSRLBRRMsELEODHkmO+GS7OIiLxIXAJOv9+vr+mTufVdCF2mqALsdMEXYidJuhC7DRBF2KnCboQO03AhHi7HKbDYeX6wTf+fL9P1/vaafgUazvzcZ7jnKebtgZgvjHH6W3U7f6Oz+ntGHKKa3pnHKZTbk8h43Bc/Mge+e+emh6W2ub2Wbk5TCEejsM0wtpfCTEcZqsQV56ZaxYQ2MLlPbtvmxB9j/gltOpUUptS26J9dM64t7YQpZP/VIiOrVPmUeSEKDnTJpaXZI6DQ0QRecgr82qU2hbHCC+E7ElSiLxwCSFCIrGdWIepEOK5ZPkzRkSTOUD2yh4mAjGJYoHgmVIXruYywt7Lmc6v2iUbOdfSC8xhTVVoMsZgfmhvyE0KAim1rYlBe0XPMkKcoYMbTcAiMazn4f4d7FZ/+wqRrUOBQtFi/LmsYoWc+dlUxN5krkkhckzhKD4celxdtJJS26oYRg11Ic4Ob1QIb6AJMXwLggVBsdsLe4/n6er3iMbot0sn2VxHdGjtlkK+3g81lRcrGw+I9qZEnBOiOQUBw39OJCnfpbZVMYwLYwpxZMLhf5MQreLSdyEm+u6Jm/JcIVrr0k8oonbp2A1X0fZCPWXzk0I0chdYdWtOiEYdE0Kcv0GjTsMQOWC3ViUuIsWY0Rr6dCFGlwEAP5RHVIt8Xvm6CB9JIebjOaxa1ImEU2pbF0P/nhYiGgGPCxGmgkMUjfvcLkRa976g4Y616XBG9EN71zOQr0TjVvSaSdglfKEQtWHgKbWtiwH1KRfijGgec6xNnASacGUhdhMiTj6/rk41KIzwQ/7n/3r9BcLfNSpKvVSMGu8tRN1PGAip85Ta1sXQBZoXIn6/ExzAhAN1q36g2M4++OQifkiIGagQIE7tmzw3W1vI5xTy1y+nur6DEM39Sd/pHLbYqvsWgmaqhcgEJxyEgDF0IJw6VCjwifFk86NcAkVCZE8pP0dE5tz5Z9k4EwJNI3/JRpYJMdQtvgBWnbCPqhBLbSv2WXEKhcgFl3K+wouBthhc94middiNSAsxbsiCyHWJW9hEzF0FLlFUI0K5lHsIES6BlifW2lEqEEfWtmYf1YifiwmxExOEWCqIV6H/9moNEqsYdl2IKXB6Zp/lBvDTJvFz5rWEyyKnbheiRuanRrv457nRfKmu8evShaghhJj9bdgQ/ulr8Xm2c/uafgF7mC4z/hDvqQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <If Condition="[shippingMethodCheckbox=False]" sap:VirtualizedContainerService.HintSize="410,430.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,246.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'unchecked'" sap:VirtualizedContainerService.HintSize="334,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_79" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="338, 472, 20, 20" DesignTimeScaleFactor="1.5" ElementType="RadioButton" FriendlyName="'INPUT shippingoption_1'" FullSelectorArgument="&lt;webctrl id='shippingoption_1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='shippingoption_1' tag='INPUT' type='radio' class='' aaname='Next Day Air (0.00)' /&gt;" Guid="92a7d3a5-b3ee-4958-a8ac-f0fa53098705" InformativeScreenshot="85611104482aa5398a49bfbfe2a46509.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="367, 468, 158, 20" ElementType="Text" FriendlyName="'unchecked'" FullSelectorArgument="&lt;webctrl aaname='Next Day Air (0.00)' parentid='checkout-shipping-method-load' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Next Day Air (0.00)' parentid='checkout-shipping-method-load' tag='LABEL' type='' class='' check:innerText='Next Day Air (0.00)' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKIAAAAYCAYAAAB5oyYIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOkSURBVGhD7ZfLceswDEVfky7GrsR2G5pJFcmMW8hGJWSRLBRRMsELEODHkmO+GS7OIiLxIXAJOv9+vr+mTufVdCF2mqALsdMEXYidJuhC7DRBF2KnCboQO03AhHi7HKbDYeX6wTf+fL9P1/vaafgUazvzcZ7jnKebtgZgvjHH6W3U7f6Oz+ntGHKKa3pnHKZTbk8h43Bc/Mge+e+emh6W2ub2Wbk5TCEejsM0wtpfCTEcZqsQV56ZaxYQ2MLlPbtvmxB9j/gltOpUUptS26J9dM64t7YQpZP/VIiOrVPmUeSEKDnTJpaXZI6DQ0QRecgr82qU2hbHCC+E7ElSiLxwCSFCIrGdWIepEOK5ZPkzRkSTOUD2yh4mAjGJYoHgmVIXruYywt7Lmc6v2iUbOdfSC8xhTVVoMsZgfmhvyE0KAim1rYlBe0XPMkKcoYMbTcAiMazn4f4d7FZ/+wqRrUOBQtFi/LmsYoWc+dlUxN5krkkhckzhKD4celxdtJJS26oYRg11Ic4Ob1QIb6AJMXwLggVBsdsLe4/n6er3iMbot0sn2VxHdGjtlkK+3g81lRcrGw+I9qZEnBOiOQUBw39OJCnfpbZVMYwLYwpxZMLhf5MQreLSdyEm+u6Jm/JcIVrr0k8oonbp2A1X0fZCPWXzk0I0chdYdWtOiEYdE0Kcv0GjTsMQOWC3ViUuIsWY0Rr6dCFGlwEAP5RHVIt8Xvm6CB9JIebjOaxa1ImEU2pbF0P/nhYiGgGPCxGmgkMUjfvcLkRa976g4Y616XBG9EN71zOQr0TjVvSaSdglfKEQtWHgKbWtiwH1KRfijGgec6xNnASacGUhdhMiTj6/rk41KIzwQ/7n/3r9BcLfNSpKvVSMGu8tRN1PGAip85Ta1sXQBZoXIn6/ExzAhAN1q36g2M4++OQifkiIGagQIE7tmzw3W1vI5xTy1y+nur6DEM39Sd/pHLbYqvsWgmaqhcgEJxyEgDF0IJw6VCjwifFk86NcAkVCZE8pP0dE5tz5Z9k4EwJNI3/JRpYJMdQtvgBWnbCPqhBLbSv2WXEKhcgFl3K+wouBthhc94middiNSAsxbsiCyHWJW9hEzF0FLlFUI0K5lHsIES6BlifW2lEqEEfWtmYf1YifiwmxExOEWCqIV6H/9moNEqsYdl2IKXB6Zp/lBvDTJvFz5rWEyyKnbheiRuanRrv457nRfKmu8evShaghhJj9bdgQ/ulr8Xm2c/uafgF7mC4z/hDvqQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_26" />
+              </If.Else>
+            </If>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_80" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 709, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl parentid='shipping-method-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='shipping-method-buttons-container' tag='INPUT' type='button' class='button-1 shipping-method-next-step-button' aaname='Continue' check:text='Continue' /&gt;" Guid="bbfec90d-8a50-4cb1-a269-97bba7f0e5c8" InformativeScreenshot="cde4777ca3cf4dbeee4abe6121393126.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'checked'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_81" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="425, 562, 20, 20" DesignTimeScaleFactor="1.5" ElementType="RadioButton" FriendlyName="'INPUT paymentmethod_0'" FullSelectorArgument="&lt;webctrl id='paymentmethod_0' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='paymentmethod_0' tag='INPUT' type='radio' class='' aaname='                                                                              ' /&gt;" Guid="f8dc96ed-8f95-463e-8bb5-54597551973b" InformativeScreenshot="75b98a49d4e9e89b7cd5f2e696bc9446.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="454, 558, 250, 20" ElementType="Text" FriendlyName="'checked'" FullSelectorArgument="&lt;webctrl aaname='Cash On Delivery (COD) (7.00)' parentid='checkout-payment-method-load' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Cash On Delivery (COD) (7.00)' parentid='checkout-payment-method-load' tag='LABEL' type='' class='' check:innerText='Cash On Delivery (COD) (7.00)' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_82" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 773, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl parentid='payment-method-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='payment-method-buttons-container' tag='INPUT' type='button' class='button-1 payment-method-next-step-button' aaname='Continue' check:text='Continue' /&gt;" Guid="0dd08418-ebbe-4b8c-9998-12dd1c46523d" InformativeScreenshot="89d734b80bbff97237212edc0f7923e1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text 'You will pay by COD'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" TextString="[paymentInformation]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="338, 380, 1241, 21" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'You will pay by COD'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='P' class='' /&gt;" Guid="e50dfda5-028f-4d6f-8dc5-dfe5d5cc76b0" ImageBase64="" InformativeScreenshot="d108e418b651490daf5d54b8125d7790.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="410,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;The payment method for the product is :&quot;+paymentInformation]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayAfter="3" DisplayName="Click 'Continue'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_83" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 562, 101, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Continue'" FullSelectorArgument="&lt;webctrl parentid='payment-info-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='payment-info-buttons-container' tag='INPUT' type='button' class='button-1 payment-info-next-step-button' aaname='Continue' check:text='Continue' /&gt;" Guid="1700ee79-18af-4020-afaa-dc8d7cb353fa" InformativeScreenshot="3bc076acbd03db9b5d0527348897c098.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Confirm'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_84" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/onepagecheckout" DesignTimeRectangle="322, 818, 92, 32" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Confirm'" FullSelectorArgument="&lt;webctrl parentid='confirm-order-buttons-container' tag='INPUT' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='confirm-order-buttons-container' tag='INPUT' type='button' class='button-1 confirm-order-next-step-button' aaname='Confirm' check:text='Confirm' /&gt;" Guid="d08b5d6f-362d-4a0a-a699-78b867b5e020" InformativeScreenshot="3405675deaacd1c4e5f6b2f61615fc57.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Get Text 'Your order'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" TextString="[orderConfirmation]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/checkout/completed/" DesignTimeRectangle="292, 631, 388, 20" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Your order'" FullSelectorArgument="&lt;webctrl aaname='Your order has been successfully processed!' innertext='Your order has been successfully processed!' visibleinnertext='Your order has been successfully processed!' /&gt;" FuzzySelectorArgument="&lt;webctrl visibleinnertext='Your order has been successfully processed!' tag='STRONG' type='' class='' /&gt;" Guid="ddd48900-6685-41d1-9707-a19af5a87d33" ImageBase64="" InformativeScreenshot="4c25e334f02a6ce158ec798985d55497.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Checkout' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="276, 600, 1365, 180" ElementType="Button" FriendlyName="'Your order'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='2' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='section order-completed' tag='DIV' aaname='                                                ' check:innerText='Your order has been successfully processed!&amp;#xD;&amp;#xA;Order number: 1602499&amp;#xD;&amp;#xA;Click here for order details.' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="410,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Order status :&quot;+orderConfirmation]" />
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" ContentHash="u2ylWjVFOE28O3lwaNveSw" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFjSURBVDhPpZI9S8NAGMdPHEU/gJtfQNxKLtLBQRxKEV9ql7oIfgARfNt0EUEQpA4OjiI6aXOnHaSDOjhUnUVRtBTEQRAVYu7y+DR5IGkatMUf/Aj53/0vD0nYv3EEv1WCA7lDcfN8C97nCGMIXcMD3pXkJ01r8W06hjH7ONEbmiRWXV6Cr+olzE6n4Wk36WVUZwz2x9sx+AwX6pT94H5UwH67h1R6DPKLKS+nug+OdNZQJB2LQy47AlO5DNRwHw68nKo++ELXo8WwF/kBWJnJgPtyDqo06mVU9VHSnIiW/pKqPnCU7InbFNFG79BTR/JVqgbgwiv6jO9DoFva4nN4zToFbsCh2Q3A2mhrPFrway3MBbptjdC/8IgH3fymY5nLVAvAETu15GUljZIWxnyc+KU28AFV3DNJtYDab00T2CATXRTXoSxjk/bsURQAxcEOHO8KFwsUNYBPHsb1SuwErcPYD4gPkYOPlkNHAAAAAElFTkSuQmCC" InformativeScreenshot="6960373b19bd90d6489c7171800a9187.jpg" Reference="RCWgLEs1BkavBHy1jrKArQ/C7c0z6JQ0E6kE79l3E7DxA" Selector="&lt;html app='chrome.exe' title='Demo Web Shop' /&gt;" Title="Demo Web Shop" Url="https://demowebshop.tricentis.com/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

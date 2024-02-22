@@ -21,6 +21,7 @@
     <x:Property Name="sheetName" Type="InArgument(x:String)" />
     <x:Property Name="intReportId" Type="InArgument(x:Int32)" />
     <x:Property Name="intTestId" Type="InArgument(x:String)" />
+    <x:Property Name="TestData" Type="InArgument(sd:DataTable)" />
   </x:Members>
   <this:BCRegister.lastName>
     <InArgument x:TypeArguments="x:String" />
@@ -55,10 +56,13 @@
   <this:BCRegister.orderConfirmation>
     <InArgument x:TypeArguments="x:String" />
   </this:BCRegister.orderConfirmation>
+  <this:BCRegister.TestData>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:BCRegister.TestData>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>854,11334.666666666666</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>854,11454.666666666666</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>BCRegister_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -188,22 +192,19 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="BCRegister" sap:VirtualizedContainerService.HintSize="568,11270" sap2010:WorkflowViewState.IdRef="Sequence_22">
+  <Sequence DisplayName="BCRegister" sap:VirtualizedContainerService.HintSize="568,11390" sap2010:WorkflowViewState.IdRef="Sequence_22">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="HomePage" sap:VirtualizedContainerService.HintSize="506,11182" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="60be1a65-88b5-456e-9adf-763380724da9" Version="V2" WindowResize="Maximize">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="HomePage" sap:VirtualizedContainerService.HintSize="506,11302" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" ScopeGuid="60be1a65-88b5-456e-9adf-763380724da9" Version="V2" WindowResize="Maximize">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,10940" sap2010:WorkflowViewState.IdRef="Sequence_27">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="sd:DataTable" Name="TestData" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,11060" sap2010:WorkflowViewState.IdRef="Sequence_27">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -399,13 +400,13 @@
                 <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1107, 548, 495, 27" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Computing and Internet'" FullSelectorArgument="&lt;webctrl tag='H1' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H1' type='' class='' /&gt;" Guid="95cb5f5c-51b9-4e2e-82c7-e0dda3703e44" ImageBase64="" InformativeScreenshot="228a273f49ccf2ae44202cb6d7a308df.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NGetText.Target>
             </uix:NGetText>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="410,147.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Product Name :&quot;+productName]" />
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add to cart'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_69" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="410,187.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Product Name :&quot;+productName]" />
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add to cart'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_69" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1270, 924, 154, 42" DesignTimeScaleFactor="1.5" ElementType="Button" FriendlyName="'Add to cart'" FullSelectorArgument="&lt;webctrl id='add-to-cart-button-13' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='add-to-cart-button-13' tag='INPUT' type='button' class='button-1 add-to-cart-button' aaname='Add to cart' check:text='Add to cart' /&gt;" Guid="1fa05b96-2316-4096-86bf-ae888bae0952" InformativeScreenshot="30fd91cab7206d318dfe13a460b1eb15.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NClick.Target>
             </uix:NClick>
-            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Shopping cart'" sap:VirtualizedContainerService.HintSize="410,159.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_70" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Shopping cart'" sap:VirtualizedContainerService.HintSize="410,199.33333333333334" sap2010:WorkflowViewState.IdRef="NClick_70" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="60be1a65-88b5-456e-9adf-763380724da9" Version="V3">
               <uix:NClick.Target>
                 <uix:TargetAnchorable BrowserURL="https://demowebshop.tricentis.com/computing-and-internet" DesignTimeRectangle="1400, 297, 111, 21" DesignTimeScaleFactor="1.5" ElementType="Text" FriendlyName="'Shopping cart'" FullSelectorArgument="&lt;webctrl parentid='topcartlink' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='topcartlink' tag='SPAN' type='' class='cart-label' aaname='Shopping cart' check:innerText='Shopping cart' /&gt;" Guid="ed6b586b-5531-4f11-a420-01934c7e76a2" InformativeScreenshot="dbcbbce11174f5437c0a25b4b5e2f4e8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Demo Web Shop. Computing and Internet' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NClick.Target>

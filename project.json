@@ -61,6 +61,7 @@
       {
         "editingStatus": "Publishable",
         "testCaseId": "be8736df-0fba-4b8a-a1d9-c6e26dfe7b29",
+        "dataVariationFilePath": ".variations\\TestData_Sheet1.json",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
         "fileName": "TestCases\\TestCaseVerifyOrder.xaml"

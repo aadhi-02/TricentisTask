@@ -1,4 +1,12 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TestCaseVerifyOrder" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="854,1538.6666666666667" sap2010:WorkflowViewState.IdRef="TestCaseVerifyOrder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TestCaseVerifyOrder" this:TestCaseVerifyOrder.Address="891 S Boyd Pl Sapulpa,Oklahoma" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ra="clr-namespace:ReporterForUiPath.Activities;assembly=ReporterForUiPath.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Address" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>854,1538.6666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>TestCaseVerifyOrder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -129,44 +137,24 @@
           <InArgument x:TypeArguments="x:String" x:Key="lastName" />
           <InArgument x:TypeArguments="x:String" x:Key="firstName" />
           <InArgument x:TypeArguments="x:String" x:Key="password" />
-          <InArgument x:TypeArguments="x:String" x:Key="sortBy">
-            <Literal x:TypeArguments="x:String">Price: Low to High</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="displayPerPage">
-            <Literal x:TypeArguments="x:String">12</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="viewAs">
-            <Literal x:TypeArguments="x:String">List</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="sortBy">Price: Low to High</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="displayPerPage">12</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="viewAs">List</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="productName" />
-          <InArgument x:TypeArguments="x:String" x:Key="selectCountry">
-            <Literal x:TypeArguments="x:String">United States</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="selectCountry">United States</InArgument>
           <InArgument x:TypeArguments="x:Boolean" x:Key="checkBox" />
-          <InArgument x:TypeArguments="x:String" x:Key="selectState">
-            <Literal x:TypeArguments="x:String">Oklahoma</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="selectState">Oklahoma</InArgument>
           <InArgument x:TypeArguments="x:Decimal" x:Key="postalCode" />
           <InArgument x:TypeArguments="x:Decimal" x:Key="phoneNumber" />
-          <InArgument x:TypeArguments="x:String" x:Key="selectCity">
-            <Literal x:TypeArguments="x:String">Oklahoma</Literal>
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="selectCity">Oklahoma</InArgument>
           <InArgument x:TypeArguments="x:String" x:Key="address1" />
           <InArgument x:TypeArguments="x:Boolean" x:Key="shippingMethodCheckbox" />
           <InArgument x:TypeArguments="x:String" x:Key="paymentInformation" />
           <InArgument x:TypeArguments="x:String" x:Key="orderConfirmation" />
-          <InArgument x:TypeArguments="x:String" x:Key="addressPath">
-            <Literal x:TypeArguments="x:String">C:\Users\ramachandran.a\OneDrive - ascendion\Desktop\TestData.xlsx</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="sheetName">
-            <Literal x:TypeArguments="x:String">Sheet1</Literal>
-          </InArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="intReportId">
-            <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="intReportId" />
-          </InArgument>
-          <InArgument x:TypeArguments="x:String" x:Key="intTestId">
-            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="intTestId" />
-          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="addressPath">C:\Users\ramachandran.a\OneDrive - ascendion\Desktop\TestData.xlsx</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="sheetName">Sheet1</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="intReportId">[intReportId]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="intTestId">[intTestId]</InArgument>
         </ui:InvokeWorkflowFile.Arguments>
       </ui:InvokeWorkflowFile>
     </Sequence>
